@@ -11,8 +11,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Upparawala Product Uploading</title>
-    <link rel="stylesheet" href="ind.css">
+    <style>
+        
+body {  	
+ 
+ background:#b9edfa;
+}
 
+
+#brand ,#category,#desc,#fab {
+width: 92%;
+}
+#sale, #mrp,#purchase,#qty,#size,#colour{
+width: 47%;
+}
+.ad{
+display:flex;
+}
+input{
+margin:3px;
+height:40px;
+border-radius: 8px;
+box-shadow: 10px 10px 5px lightblue;
+font-size:15px;
+padding-left:20px;
+
+}
+#desc{
+margin:3px;
+border-radius: 8px;
+font-size:15px;
+padding-left:20px;
+
+}
+.btn{
+background: blue;
+border-radius: 20px;
+width:48%;
+margin:2px;
+font-size:15px;
+color:#b9edfa;
+font-weight:bold;
+padding: 2px;
+
+}
+input:focus {
+font-size:20px;
+font-weight:bold;
+box-shadow: 0 0 5pt 0.5pt #0d59ff;
+outline-width: 0px;
+border-radius: 25px;
+}
+#pcode{
+font-size: 20px;
+color: blue;
+font-weight: bold;
+}
+#scode{
+text-transform: uppercase;
+}
+    </style>
 </head>
 
 <body>
@@ -52,7 +110,84 @@
     <button id="savebtn" type="submit" class="btn" onclick="disableBtn()">Submit Data</button>
 </form>
 </div>
-<script src="ind.js"></script>
+<script>
+    document.getElementById("myForm").reset();
+ document.getElementById("savebtn").disabled = true;
+ document.getElementById("savebtn").style.opacity= 0.3;
+ document.getElementById("pcode").style.display= "none";
+ document.getElementById('okbtn').disabled = true;
+            document.getElementById("okbtn").style.opacity= 0.3;
+function notblank1(){
+    if(document.getElementById("scode").value===""||document.getElementById("brand").value===""||
+        document.getElementById("category").value===""||document.getElementById("fab").value===""||
+        document.getElementById("colour").value===""||
+        document.getElementById("mrp").value===""||document.getElementById("sale").value===""||document.getElementById("desc").value==="") { 
+            document.getElementById('okbtn').disabled = true;
+            document.getElementById("okbtn").style.opacity= 0.3;
+        } else { 
+            document.getElementById('okbtn').disabled = false;
+            document.getElementById("okbtn").style.opacity= "";
+        }
+    }
+
+ function disableBtn() {
+  document.getElementById("savebtn").disabled = true;
+  document.getElementById("savebtn").style.opacity= 0.3;
+  document.getElementById("pcode").style.display= "none";
+  document.getElementById("okbtn").disabled = false;
+ document.getElementById("okbtn").style.opacity= "";
+}
+
+function enableBtn() {
+    document.getElementById("okbtn").disabled = true;
+ document.getElementById("okbtn").style.opacity= 0.3;
+  document.getElementById("savebtn").disabled = false;
+  document.getElementById("savebtn").style.opacity= "";
+  document.getElementById("pcode").style.display= "";
+  let u = document.getElementById("pcode").value;
+  let c = document.getElementById("scode").value;
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+function makeid1(length) {
+    let result = '';
+    const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+function makeid2(length) {
+    let result = '';
+    const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+document.getElementById("pcode").value = (document.getElementById("scode").value.toUpperCase() + makeid(2) + makeid1(2) + makeid2(2)  );
+
+function di(){
+  document.getElementById("main").style.filter = "blur(6px)";
+}
+
+}
+
+    </script>
 </body>
 
 </html>
