@@ -1,189 +1,33 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Upparawala Product Uploading</title>
-    <style>
-      
-body {  	
- 
- background:#b9edfa;
-}
-
-
-#brand ,#category,#desc,#fab {
-width: 92%;
-}
-#sale, #mrp,#purchase,#qty,#size,#colour{
-width: 47%;
-}
-.ad{
-display:flex;
-}
-input{
-margin:3px;
-height:40px;
-border-radius: 8px;
-box-shadow: 10px 10px 5px lightblue;
-font-size:15px;
-padding-left:20px;
-
-}
-#desc{
-margin:3px;
-border-radius: 8px;
-font-size:15px;
-padding-left:20px;
-
-}
-.btn{
-background: blue;
-border-radius: 20px;
-width:48%;
-margin:2px;
-font-size:15px;
-color:#b9edfa;
-font-weight:bold;
-padding: 2px;
-
-}
-input:focus {
-font-size:20px;
-font-weight:bold;
-box-shadow: 0 0 5pt 0.5pt #0d59ff;
-outline-width: 0px;
-border-radius: 25px;
-}
-#pcode{
-font-size: 20px;
-color: blue;
-font-weight: bold;
-}
-#scode{
-text-transform: uppercase;
-}
-    </style>
-
-</head>
-
-<body>
-    <script type="text/javascript">var submitted=false</script>
-    <iframe name="ifr" id="ifr" style="display: none;" onload="if(submitted){ window.location='/gg.html';}"></iframe>
-<div id="main">
-<h3>Product Uploading on UPPARWALA</h3>
-   <form class="login-form" id="myForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeogs08vN5aHc7z1jtOgAWrmz854T_ynxQzVHrzkQcDjVR9qA/formResponse" method="post" target="ifr" onsubmit="submitted=true">
-
-    <div>
-        <input type="text" id="scode" onkeyup="notblank1()" required placeholder="Store Code" maxlength="2">
-
-        <input type="text" id="brand" onkeyup="notblank1()" name="entry.1662562707" required placeholder="Brand Name">
-
-        <input type="text" id="category" onkeyup="notblank1()" name="entry.152515537" required placeholder="Category">
-
-        <input type="text" id="fab" onkeyup="notblank1()" name="entry.765276839" required placeholder="Fabric">
-
-        <div class="ad">
-        <input type="text" id="colour" onkeyup="notblank1()" name="entry.1198289378" required placeholder="Colour">
-
-        <input type="text" id="size" onkeyup="notblank1()" name="entry.80489394" placeholder="Size"></div>
-
-       <div class="ad"><input type="number" onkeyup="notblank1()" id="mrp" name="entry.2045963783" required placeholder="MRP">
-
-        <input type="number" id="sale" onkeyup="notblank1()" name="entry.1664901461" required placeholder="Sale Price"></div>
-
-        <div class="ad"><input type="number" onkeyup="notblank1()" id="purchase" name="entry.1313337883" placeholder="Purchase Price">
-
-        <input type="number" id="qty" onkeyup="notblank1()" name="entry.1345275416" placeholder="Quantity"></div>
-
-        <textarea id="desc" onkeyup="notblank1()" name="entry.219987194" placeholder="Product Description" required style="height:100px"></textarea>
-        <input type="text" id="pcode" name="entry.1661785242" required>
-
+<!doctype html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <title>Cyclic: Hello World</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <div id="hello-wrapper">
+      <div id="particles-js"></div>
+      <div class="content position-absolute w-100 top-0 pt-5">
+        <div class="cta">
+          <div id="hello" class="typewriter pb-3">
+            Hello World!
+          </div>
+          <a class="btn btn-primary mb-5" href="//app.cyclic.sh/api/login">Sign in to Cyclic</a>
+        </div>
+        <div id="world">
+          <canvas id='rotatingGlobe' style='cursor: move;'></canvas>
+        </div>
+      </div>
     </div>
-    <button id="okbtn" type="button" class="btn" onclick="enableBtn()">Generate Code</button>
-    <button id="savebtn" type="submit" class="btn" onclick="disableBtn()">Submit Data</button>
-</form>
-</div>
-<script> document.getElementById("myForm").reset();
- document.getElementById("savebtn").disabled = true;
- document.getElementById("savebtn").style.opacity= 0.3;
- document.getElementById("pcode").style.display= "none";
- document.getElementById('okbtn').disabled = true;
-            document.getElementById("okbtn").style.opacity= 0.3;
-function notblank1(){
-    if(document.getElementById("scode").value===""||document.getElementById("brand").value===""||
-        document.getElementById("category").value===""||document.getElementById("fab").value===""||
-        document.getElementById("colour").value===""||
-        document.getElementById("mrp").value===""||document.getElementById("sale").value===""||document.getElementById("desc").value==="") { 
-            document.getElementById('okbtn').disabled = true;
-            document.getElementById("okbtn").style.opacity= 0.3;
-        } else { 
-            document.getElementById('okbtn').disabled = false;
-            document.getElementById("okbtn").style.opacity= "";
-        }
-    }
-
- function disableBtn() {
-  document.getElementById("savebtn").disabled = true;
-  document.getElementById("savebtn").style.opacity= 0.3;
-  document.getElementById("pcode").style.display= "none";
-  document.getElementById("okbtn").disabled = false;
- document.getElementById("okbtn").style.opacity= "";
-}
-
-function enableBtn() {
-    document.getElementById("okbtn").disabled = true;
- document.getElementById("okbtn").style.opacity= 0.3;
-  document.getElementById("savebtn").disabled = false;
-  document.getElementById("savebtn").style.opacity= "";
-  document.getElementById("pcode").style.display= "";
-  let u = document.getElementById("pcode").value;
-  let c = document.getElementById("scode").value;
-function makeid(length) {
-    let result = '';
-    const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-}
-function makeid1(length) {
-    let result = '';
-    const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-}
-function makeid2(length) {
-    let result = '';
-    const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-}
-document.getElementById("pcode").value = (document.getElementById("scode").value.toUpperCase() + makeid(2) + makeid1(2) + makeid2(2)  );
-
-
-}
-</script>
-</body>
-
+    <script type='text/javascript' src='//d3js.org/d3.v3.min.js'></script>
+    <script type='text/javascript' src='//d3js.org/topojson.v1.min.js'></script>
+    <script type='text/javascript' src='planetaryjs.min.js'></script>
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type='text/javascript' src='particles.js'></script>
+    <script type='text/javascript' src='globe.js'></script>
+  </body>
 </html>
